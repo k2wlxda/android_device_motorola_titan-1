@@ -131,13 +131,6 @@ PRODUCT_PACKAGES += \
     resize2fs \
     setup_fs
 
-# FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    FMRecord \
-    libqcomfm_jni \
-    qcom.fmradio
-
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
@@ -360,10 +353,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDEs += \
     media.stagefright.use-awesome=true
-
-# Recovery
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cwm.forbid_format=/fsg,/firmware,/persist,/boot
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
