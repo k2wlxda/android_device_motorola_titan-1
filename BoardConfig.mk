@@ -62,6 +62,13 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_SOURCE := kernel/motorola/titan
 TARGET_KERNEL_CONFIG := titan_defconfig
 
+WLAN_MODULES:
+	mkdir -p $(KERNEL_MODULES_OUT)/pronto
+	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
+	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
+
+TARGET_KERNEL_MODULES += WLAN_MODULES
+
 # Audio
 AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
 AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
@@ -88,6 +95,9 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
+# Encryption
+TARGET_HW_DISK_ENCRYPTION := true
+
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
@@ -96,6 +106,9 @@ TARGET_NR_SVC_SUPP_GIDS := 28
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
+
+# Logging
+TARGET_USES_LOGD := false
 
 # Media
 TARGET_NO_ADAPTIVE_PLAYBACK := true
@@ -142,7 +155,6 @@ BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
-TARGET_USES_WCNSS_CTRL := true
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME := "wlan"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-WIFI_DRIVER_FW_PATH_STA   := "sta"
-WIFI_DRIVER_FW_PATH_AP    := "ap"
