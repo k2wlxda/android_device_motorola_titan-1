@@ -236,7 +236,7 @@ PRODUCT_PACKAGES += \
     hostapd.deny \
     libwpa_client \
     wcnss_service \
-    wpa_supplicant
+    wpa_supplicant \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     wcnss_service
