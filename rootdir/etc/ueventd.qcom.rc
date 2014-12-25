@@ -45,7 +45,7 @@
 
 /dev/block/platform/msm_sdcc.1/by-name/frp 0600 system system
 
-#permissions for CSVTm
+#permissions for CSVT
 /dev/smd11                0660   radio      radio
 
 /dev/radio0               0640   system     system
