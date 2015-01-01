@@ -239,7 +239,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     libqsap_sdk \
     libQWiFiSoftApCfg \
-    wcnss_service
+    wcnss_service \
+    WCNSS_qcom_wlan_factory_nv.bin \
+    p2p_supplicant_overlay.conf \
+    wpa_supplicant_overlay.conf
 
 # Default.prop overrides to get adb working at boot   
 ADDITIONAL_DEFAULT_PROPERTIES += \
